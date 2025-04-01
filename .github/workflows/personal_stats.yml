@@ -7,23 +7,24 @@ on:
 jobs: 
   build: 
     runs-on: ubuntu-latest
-    
+  
     permissions: 
       contents: write
       
     steps: 
       - name: checkout code
-      - uses: actions/checkout@v4
+        uses: actions/checkout@v4
 
       - name: Setup python
-      - uses: actions/setup-python@v5
+        uses: actions/setup-python@v5
         with:
             python-version: '3.11'
+            
       - name: Run script 
-      - run: python ./Roadmap/stats.py
+        run: python ./Roadmap/stats.py
 
       - name: Commit and Push 
-      - uses: stefanzweifel/git-auto-commit-action@v5
+        uses: stefanzweifel/git-auto-commit-action@v5
         with:
           commit_message: Update state
           commit_user_name: Matias Guzmán [Github Actions]
